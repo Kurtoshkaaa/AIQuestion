@@ -28,9 +28,6 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="inputKeyButton:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="hCX-nY-D1v"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrw-ts-Pcb">
                                 <rect key="frame" x="16" y="424" width="361" height="34.333333333333314"/>
@@ -71,6 +68,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="helpLink" destination="zrw-ts-Pcb" id="FmH-eS-qcE"/>
                         <outlet property="inputAPIKey" destination="INW-3i-UIH" id="iDT-kN-Qn8"/>
                         <outlet property="saveKeyButton" destination="bQB-rh-VvP" id="alz-Sj-A6G"/>
                         <outlet property="titleLabel" destination="xBY-zf-UIG" id="MfE-S1-gqf"/>

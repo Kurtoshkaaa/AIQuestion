@@ -29,7 +29,7 @@ class ViewController: UIViewController {
      MARK: -
      */
     
-    private var APIKey = ""
+    private var APIKey: String?
     
     /*
      MARK: -
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         /*
          */
         
-        updateUI()
-        updateButtonAction()
+        updateButtonState()
+        inputKeyButton()
     }
     
     /*
@@ -57,18 +57,18 @@ class ViewController: UIViewController {
     
     private func inputKeyButton() {
         inputAPIKey.placeholder = "Enter API Key"
-        
+
     }
     
     /*
      */
     
     @objc
-    private func updateButtonAction() {
+    private func updateButtonState() {
         
         /*
          */
-        let isValid = inputAPIKey.text
+        let isValid = inputAPIKey.text ?? ""
         
         if  isValid == "" {
             saveKeyButton.isEnabled = false
@@ -76,18 +76,8 @@ class ViewController: UIViewController {
             saveKeyButton.isEnabled = true
         }
         
-        inputAPIKey.addTarget(self, action: #selector(updateButtonAction), for: .editingChanged)
+        inputAPIKey.addTarget(self, action: #selector(updateButtonState), for: .editingChanged)
     }
-    
-    /*
-     */
-    
-    private func updateUI() {
-        
-    }
-    
-    /*
-     */
     
     /*
      MARK: - The link opens with APIKey
@@ -101,6 +91,12 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
     
     
     
